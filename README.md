@@ -110,3 +110,19 @@ This is a **simple starter** repo. You can expand it with:
 ⠀⠀⠀⠀⠀⠀⠀⠈⠙⠶⣭⣒⠩⠖⢠⣤⠄⠀⠀⠀⠀⠀⠠⠔⠁⡰⠀⣧⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠲⢤⣀⣀⠉⠉⠀⠀⠀⠀⠀⠁⠀⣠⠏⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠛⠒⠲⠶⠤⠴⠒⠚⠁ -->
+## Terraform References for This Repo
+
+hAzureRM Provider:
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+
+Azure Resource Group => Documentation for the azurerm_resource_group resource:
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group
+
+Azure Static Web App:
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/static_web_app
+
+Terraform Outputs:
+https://developer.hashicorp.com/terraform/language/values/outputs
+
+Terraform State:
+https://developer.hashicorp.com/terraform/language/state
