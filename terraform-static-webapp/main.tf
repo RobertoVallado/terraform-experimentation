@@ -157,7 +157,22 @@ resource "azurerm_virtual_machine_extension" "iis" {
 
   settings = <<SETTINGS
 {
-  "commandToExecute": "powershell Install-WindowsFeature Web-Server; echo 'Hello World from Azure VM' > C:\\inetpub\\wwwroot\\index.html; Set-MpPreference -DisableRealtimeMonitoring $false"
+  "commandToExecute": "powershell -ExecutionPolicy Unrestricted -Command \"Install-WindowsFeature -Name Web-Server -IncludeManagementTools; New-Item -Path 'C:\\inetpub\\wwwroot' -ItemType Directory -Force; Set-Content -Path 'C:\\inetpub\\wwwroot\\index.html' -Value 'Hello World from Azure VM'; Set-MpPreference -DisableRealtimeMonitoring $false\""
 }
 SETTINGS
 }
+
+# https://aka.ms/VMExtensionCSEWindowsTroubleshoot." <==
+
+# Disks/disk2]
+# ╷
+# │ Error: creating/updating Extension (Subscription: "---"
+# │ Resource Group Name: "rg-iis-lab"
+# │ Virtual Machine Name: "vm-iis"
+# │ Extension Name: "iis-install"): polling after CreateOrUpdate: polling failed: the Azure API returned the following error:
+# │ 
+# │ Status: "VMExtensionProvisioningError"
+# │ Code: ""
+# │ Message: "VM has reported a user failure when processing extension 'iis-install'. Please correct the error and try again. (publisher 'Microsoft.Compute' and type 'CustomScriptExtension'). Error code: '2'. Error message: 'Command execution finished, but failed because it returned a non-zero exit code of: '1'. The command had an error output of: 'The system cannot find the path specified.\r\n''. Detailed error: ''. More information on troubleshooting is available at https://aka.ms/VMExtensionCSEWindowsTroubleshoot."
+# │ Activity Id: ""
+# │
