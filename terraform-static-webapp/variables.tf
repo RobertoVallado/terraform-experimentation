@@ -1,34 +1,36 @@
 variable "resource_group_name" {
-  description = "Bob test name of the resource group" 
-  type        = string
+  default = "rg-iis-lab"
 }
 
 variable "location" {
-  description = "Azure region"
-  type        = string
-  default     = "centralus"
+  default = "centralus"
 }
 
-variable "static_web_app_name" {
-  description = "Name of the static web app"
-  type        = string
+variable "vm_name" {
+  default = "vm-iis"
 }
 
-variable "sku_tier" {
-  description = "SKU tier for Static Web App"
-  type        = string
-  default     = "Free"
+variable "admin_username" {
+  default = "azureuser"
 }
 
-variable "sku_size" {
-  description = "SKU size for Static Web App"
-  type        = string
-  default     = "Free"
+variable "admin_password" {
+  sensitive = true
+}
+
+variable "windows_sku" {
+  default = "2022-Datacenter"
+}
+
+# INPUT ON AZURE CLI
+variable "my_ip" {
+  description = "Your public IP"
 }
 
 variable "tags" {
-  description = "Tags to apply to resources"
-  type        = map(string)
-  default     = {}
+  default = {
+    Proprietaire = "rvallado" #Hardcoded as per Lab
+    Cegep        = "Limoilou"
+    Pays         = "Canada"
+  }
 }
-
