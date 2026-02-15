@@ -6,7 +6,7 @@ variable "resource_group_name" {
 variable "location" {
   description = "Azure region"
   type        = string
-  default     = "Canada Central"
+  default     = "centralus"
 }
 
 variable "static_web_app_name" {
@@ -31,3 +31,4 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
